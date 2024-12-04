@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+
+
+    <title>30 Days of React Challenge - Day 02</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      line-height: 1.5;
+      font-family: "Montserrat";
+      font-weight: 300;
+      color: #000000;
+    }
+
+    .root {
+      min-height: 100%;
+      position: relative;
+    }
+
+    .header-wrapper,
+    .main-wrapper,
+    .footer-wrapper {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1180px;
+      padding: 0 10px;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: 500;
+    }
+
+    h2,
+    h3 {
+      font-size: 40px;
+      font-weight: 400;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    .header-menu li {
+      display: inline-block;
+      padding-right: 20px;
+    }
+  </style>
+  <body>
+    <div class="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const rootElement = document.querySelector(".root");
+
+      const styleHeader = {
+        display: "flex",
+        justifyContent: "space-around",
+        fontSize: "20px",
+        listStyle: "none",
+      };
+
+      const header = (
+        <header>
+          <div className="header-wrapper">
+            <ul className="header-menu">
+              <li>Menu 1</li>
+              <li>Menu 2</li>
+              <li>Menu 3</li>
+            </ul>
+          </div>
+        </header>
+      );
+
+      //   const title = <h1 className = 'title'>Getting Started React</h1>
+      //   const inputField = (
+      //     <div>
+      //         <label htmlFor = 'firstname'>First Name</label>
+      //         <input type = 'text' id = 'firstname' placeholder = 'First Name' />
+      //     </div>
+      //   );
+
+      const listItems = ['List Item 1', 'List Item 2', 'List Item 3']
+      const listItemsFormatted = listItems.map((listItem) => <li key = {listItem}>{listItem}</li>)
+
+      const main = (
+        <main>
+          <div className="main-wrapper">
+            <p>Test for p and list in the main</p>
+            <ul>
+                {listItemsFormatted}
+            </ul>
+          </div>
+        </main>
+      );
+
+      // const styleFooter = { fontSize: "20px", textAlign: "center" };
+      const year = new Date().getFullYear()
+
+      const footer = (
+        <footer>
+          <div className="footer-wrapper">
+            <p> Copyright in the Footer © {year}</p>
+          </div>
+        </footer>
+      );
+
+      const app = (
+        <div>
+          {header}
+          {main}
+          {footer}
+        </div>
+      );
+
+      ReactDOM.render(app, rootElement);
+    </script>
+  </body>
+</html>
